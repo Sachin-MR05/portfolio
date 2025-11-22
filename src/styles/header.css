@@ -1,0 +1,295 @@
+/* Modern Glassmorphic Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 clamp(20px, 5vw, 80px);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    z-index: 1000;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.header.scrolled {
+    height: 70px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+.header.scrolled::before {
+    opacity: 1;
+}
+
+/* Navigation Links - Modern Design */
+.nav-left,
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: clamp(15px, 2vw, 35px);
+    z-index: 2;
+}
+
+.header a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: #4a5568;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    padding: 8px 0;
+}
+
+.header a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 100%;
+    height: 2px;
+    background: #7877c6;
+    border-radius: 2px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header a:hover {
+    color: #1a202c;
+}
+
+.header a:hover::before {
+    transform: translateX(-50%) scaleX(1);
+}
+
+.nav-separator {
+    color: rgba(0, 0, 0, 0.15);
+    font-size: 0.8rem;
+    font-weight: 300;
+    user-select: none;
+}
+
+/* Revolutionary Logo Design */
+.logo-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    padding: 10px 20px;
+    border-radius: 12px;
+}
+
+.logo-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(120, 119, 198, 0.05);
+    border-radius: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.logo-link:hover::before {
+    opacity: 1;
+}
+
+/* Animated Bracket Symbols - Subtle */
+.bracket {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: #7877c6;
+    transition: all 0.4s ease;
+    opacity: 0.6;
+}
+
+.logo-link:hover .bracket {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Signature Style Name - Light Weight */
+.signature {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    color: #2d3748;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Initials Design - Bold with Violet Accent */
+.normal {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    color: #1a202c;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.normal::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #7877c6;
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.logo-link:hover .normal::after {
+    transform: scaleX(1);
+}
+
+/* Logo Hover Animation */
+.logo-link:hover .signature {
+    letter-spacing: 2.5px;
+    color: #1a202c;
+}
+
+.logo-link:hover .normal {
+    letter-spacing: 1.5px;
+}
+
+/* Scrolled State Logo */
+.header.scrolled .logo-link {
+    transform: scale(0.9);
+}
+
+/* Mobile Responsive */
+@media (max-width: 968px) {
+    .header {
+        padding: 0 30px;
+        height: 75px;
+    }
+
+    .nav-left,
+    .nav-right {
+        gap: 20px;
+    }
+
+    .header a {
+        font-size: 0.85rem;
+    }
+
+    .signature {
+        font-size: 1.3rem;
+    }
+
+    .normal {
+        font-size: 1.1rem;
+    }
+
+    .bracket {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 0 20px;
+        height: 70px;
+        justify-content: center;
+    }
+
+    .nav-left,
+    .nav-right {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(20px);
+        padding: 15px 25px;
+        border-radius: 50px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        gap: 20px;
+    }
+
+    .nav-left {
+        bottom: 80px;
+    }
+
+    .nav-separator {
+        display: none;
+    }
+
+    .logo-container {
+        position: relative;
+        left: auto;
+        transform: none;
+    }
+
+    .header.scrolled {
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header a {
+        font-size: 0.75rem;
+    }
+
+    .signature {
+        font-size: 1.1rem;
+    }
+
+    .normal {
+        font-size: 0.95rem;
+        letter-spacing: 1px;
+    }
+
+    .bracket {
+        font-size: 1.2rem;
+    }
+
+    .logo-link {
+        gap: 8px;
+        padding: 8px 15px;
+    }
+
+    .nav-left,
+    .nav-right {
+        padding: 12px 20px;
+        gap: 15px;
+    }
+}

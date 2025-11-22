@@ -1,0 +1,123 @@
+/* Skills Section - Simple Clean Design */
+.skills {
+    background: #ffffff;
+    padding: 60px 0;
+    position: relative;
+}
+
+.skills-heading {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 40px;
+    letter-spacing: 0.5px;
+}
+
+.skills-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.skill-item {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.skill-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.skill-item i {
+    font-size: 2.5rem;
+}
+
+/* Tooltip */
+.skill-item::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%) translateY(5px);
+    background: rgba(26, 26, 26, 0.95);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.skill-item:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .skills {
+        padding: 50px 0;
+    }
+
+    .skills-heading {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+
+    .skills-row {
+        gap: 12px;
+    }
+
+    .skill-item {
+        width: 50px;
+        height: 50px;
+    }
+
+    .skill-item i {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-heading {
+        font-size: 1.5rem;
+    }
+
+    .skills-row {
+        gap: 10px;
+    }
+
+    .skill-item {
+        width: 45px;
+        height: 45px;
+    }
+
+    .skill-item i {
+        font-size: 1.8rem;
+    }
+}
